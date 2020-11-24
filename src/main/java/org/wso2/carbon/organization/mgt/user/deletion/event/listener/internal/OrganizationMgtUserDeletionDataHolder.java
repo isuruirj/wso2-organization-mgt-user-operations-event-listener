@@ -16,24 +16,24 @@
  * under the License.
  */
 
-package org.wso2.carbon.custom.user.deletion.event.listener.internal;
+package org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal;
 
 import org.wso2.carbon.identity.organization.user.role.mgt.core.OrganizationUserRoleManager;
 
 /**
  * User Operation data holder.
  */
-public class CustomUserDeletionDataHolder {
+public class OrganizationMgtUserDeletionDataHolder {
 
-    private static CustomUserDeletionDataHolder dataHolder = new CustomUserDeletionDataHolder();
+    private static OrganizationMgtUserDeletionDataHolder dataHolder = new OrganizationMgtUserDeletionDataHolder();
     private OrganizationUserRoleManager organizationUserRoleMgtService;
 
-    public static CustomUserDeletionDataHolder getInstance() {
+    public static OrganizationMgtUserDeletionDataHolder getInstance() {
 
         return dataHolder;
     }
 
-    public void setDataHolder(CustomUserDeletionDataHolder dataHolder) {
+    public void setDataHolder(OrganizationMgtUserDeletionDataHolder dataHolder) {
 
         this.dataHolder = dataHolder;
     }

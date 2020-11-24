@@ -23,10 +23,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.wso2.carbon</groupId>
-    <artifactId>org.wso2.carbon.custom.user.deletion.event.listener</artifactId>
+    <artifactId>org.wso2.carbon.organization.mgt.user.deletion.event.listener</artifactId>
     <version>1.0</version>
     <packaging>bundle</packaging>
-    <name>custom-user-deletion-event-listener</name>
+    <name>organization-mgt-user-deletion-event-listener</name>
     <repositories>
 
         <repository>
@@ -113,7 +113,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Private-Package>
-                            org.wso2.carbon.custom.user.deletion.event.listener.internal,
+                            org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal,
                         </Private-Package>
                         <Import-Package>
                             org.osgi.framework; version="${osgi.framework.imp.pkg.version.range}",
@@ -122,8 +122,8 @@
                         </Import-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Export-Package>
-                            !org.wso2.carbon.custom.user.deletion.event.listener.internal,
-                            org.wso2.carbon.custom.user.deletion.event.listener.*,
+                            !org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal,
+                            org.wso2.carbon.organization.mgt.user.deletion.event.listener.listener.*,
                         </Export-Package>
                     </instructions>
                 </configuration>

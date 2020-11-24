@@ -16,22 +16,23 @@
  * under the License.
  */
 
-package org.wso2.carbon.custom.user.deletion.event.listener.impl;
+package org.wso2.carbon.organization.mgt.user.deletion.event.listener.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.wso2.carbon.custom.user.deletion.event.listener.internal.CustomUserDeletionDataHolder;
+import org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal.OrganizationMgtUserDeletionDataHolder;
 import org.wso2.carbon.identity.core.AbstractIdentityUserOperationEventListener;
 import org.wso2.carbon.identity.organization.user.role.mgt.core.exception.OrganizationUserRoleMgtException;
 import org.wso2.carbon.user.core.UserStoreException;
 import org.wso2.carbon.user.core.UserStoreManager;
 
-public class CustomUserDeletionEventListener extends AbstractIdentityUserOperationEventListener {
+public class OrganizationMgtUserDeletionEventListener extends AbstractIdentityUserOperationEventListener {
 
-    private static Log log = LogFactory.getLog(CustomUserDeletionEventListener.class);
+    private static Log log = LogFactory.getLog(OrganizationMgtUserDeletionEventListener.class);
 
     @Override
     public int getExecutionOrderId() {
+
         return 91;
     }
 
@@ -39,7 +40,7 @@ public class CustomUserDeletionEventListener extends AbstractIdentityUserOperati
     public boolean doPostDeleteUserWithID(String userId, UserStoreManager userStoreManager) throws UserStoreException {
 
         try {
-            CustomUserDeletionDataHolder.getInstance().getOrganizationUserRoleMgtService()
+            OrganizationMgtUserDeletionDataHolder.getInstance().getOrganizationUserRoleMgtService()
                     .deleteOrganizationsUserRoleMappings(userId);
             if (log.isDebugEnabled()) {
                 log.debug("Delete all organization user role mappings assigned to user: " + userId);

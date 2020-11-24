@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.carbon.custom.user.deletion.event.listener.internal;
+package org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -29,26 +29,26 @@ import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.wso2.carbon.identity.organization.user.role.mgt.core.OrganizationUserRoleManager;
 import org.wso2.carbon.user.core.listener.UserOperationEventListener;
-import org.wso2.carbon.custom.user.deletion.event.listener.impl.CustomUserDeletionEventListener;
+import org.wso2.carbon.organization.mgt.user.deletion.event.listener.impl.OrganizationMgtUserDeletionEventListener;
 
 /**
  * OSGi service component for user operation handler service.
  */
 @Component(
-        name = "custom.user.operation.service",
+        name = "organization.mgt.user.operation.service",
         immediate = true
 )
-public class CustomUserDeletionServiceComponent {
+public class OrganizationMgtUserDeletionServiceComponent {
 
-    private static Log log = LogFactory.getLog(CustomUserDeletionServiceComponent.class);
+    private static Log log = LogFactory.getLog(OrganizationMgtUserDeletionServiceComponent.class);
 
     @Activate
     protected void activate(ComponentContext context) {
 
         try {
             BundleContext bundleContext = context.getBundleContext();
-            bundleContext.registerService(UserOperationEventListener.class, new CustomUserDeletionEventListener(), null);
-            log.info("Custom user operations listener activated");
+            bundleContext.registerService(UserOperationEventListener.class, new OrganizationMgtUserDeletionEventListener(), null);
+            log.info("Organization mgt user operations listener activated");
         } catch (Throwable e) {
             log.error("Error occurred while activating listener.", e);
         }
@@ -64,7 +64,8 @@ public class CustomUserDeletionServiceComponent {
         if (log.isDebugEnabled()) {
             log.debug("Setting the OrganizationUserRole Manager Service.");
         }
-        CustomUserDeletionDataHolder.getInstance().setOrganizationUserRoleMgtService(organizationUserRoleService);
+        OrganizationMgtUserDeletionDataHolder
+                .getInstance().setOrganizationUserRoleMgtService(organizationUserRoleService);
     }
 
     protected void unsetOrganizationUserRoleMgtService(OrganizationUserRoleManager organizationUserRoleService) {
@@ -72,6 +73,6 @@ public class CustomUserDeletionServiceComponent {
         if (log.isDebugEnabled()) {
             log.debug("Unset the OrganizationUserRole Manager Service.");
         }
-        CustomUserDeletionDataHolder.getInstance().setOrganizationUserRoleMgtService(null);
+        OrganizationMgtUserDeletionDataHolder.getInstance().setOrganizationUserRoleMgtService(null);
     }
 }

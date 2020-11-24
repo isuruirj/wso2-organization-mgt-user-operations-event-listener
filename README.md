@@ -1,4 +1,4 @@
-# wso2-user-operations-event-listener
+# wso2-organization-mgt-user-operations-event-listener
 user operation event listener to delete all organization related admin roles assigned to a user, after user deletion.
 
 Add the following config to deployment.toml

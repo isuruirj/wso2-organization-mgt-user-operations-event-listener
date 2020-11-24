@@ -123,7 +123,7 @@
                         <DynamicImport-Package>*</DynamicImport-Package>
                         <Export-Package>
                             !org.wso2.carbon.organization.mgt.user.deletion.event.listener.internal,
-                            org.wso2.carbon.organization.mgt.user.deletion.event.listener.listener.*,
+                            org.wso2.carbon.organization.mgt.user.deletion.event.listener.*,
                         </Export-Package>
                     </instructions>
                 </configuration>

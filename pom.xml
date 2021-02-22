@@ -24,11 +24,19 @@
 
     <groupId>org.wso2.carbon</groupId>
     <artifactId>org.wso2.carbon.organization.mgt.user.deletion.event.listener</artifactId>
-    <version>1.0</version>
+    <version>0.23-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>organization-mgt-user-deletion-event-listener</name>
-    <repositories>
 
+    <scm>
+        <url>https://github.com/AnuradhaSK/wso2-organization-mgt-user-operations-event-listener</url>
+        <developerConnection>scm:git:https://github.com/AnuradhaSK/wso2-organization-mgt-user-operations-event-listener
+        </developerConnection>
+        <connection>scm:git:https://github.com/AnuradhaSK/wso2-organization-mgt-user-operations-event-listener</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <repositories>
         <repository>
             <id>wso2-nexus</id>
             <name>WSO2 internal Repository</name>
@@ -65,6 +73,17 @@
         </repository>
     </repositories>
 
+    <properties>
+        <carbon.identity.framework.version>5.17.5</carbon.identity.framework.version>
+        <org.wso2.carbon.version>4.6.0</org.wso2.carbon.version>
+        <osgi.framework.imp.pkg.version.range>[1.7.0, 2.0.0)</osgi.framework.imp.pkg.version.range>
+        <osgi.service.component.imp.pkg.version.range>[1.2.0, 2.0.0)</osgi.service.component.imp.pkg.version.range>
+        <import.package.version.commons.logging>[1.2.0,2.0.0)</import.package.version.commons.logging>
+        <org.wso2.carbon.identity.organization.mgt.version>
+            0.23-SNAPSHOT
+        </org.wso2.carbon.identity.organization.mgt.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.wso2.carbon</groupId>
@@ -84,12 +103,22 @@
         <dependency>
             <groupId>org.wso2.carbon.identity.framework</groupId>
             <artifactId>org.wso2.carbon.identity.organization.user.role.mgt.core</artifactId>
-            <version>${carbon.identity.framework.version}</version>
+            <version>${org.wso2.carbon.identity.organization.mgt.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <tagNameFormat>${project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <arguments>-Dmaven.javadoc.skip=true</arguments>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
@@ -140,14 +169,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <carbon.identity.framework.version>5.17.5</carbon.identity.framework.version>
-        <org.wso2.carbon.version>4.6.0</org.wso2.carbon.version>
-        <osgi.framework.imp.pkg.version.range>[1.7.0, 2.0.0)</osgi.framework.imp.pkg.version.range>
-        <osgi.service.component.imp.pkg.version.range>[1.2.0, 2.0.0)</osgi.service.component.imp.pkg.version.range>
-        <import.package.version.commons.logging>[1.2.0,2.0.0)</import.package.version.commons.logging>
-
-    </properties>
-
 </project>

@@ -28,7 +28,7 @@
 
     <groupId>org.wso2.carbon</groupId>
     <artifactId>org.wso2.carbon.organization.mgt.user.deletion.event.listener</artifactId>
-    <version>0.23</version>
+    <version>0.24-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>organization-mgt-user-deletion-event-listener</name>
 
@@ -37,7 +37,7 @@
         <developerConnection>scm:git:https://github.com/AnuradhaSK/wso2-organization-mgt-user-operations-event-listener
         </developerConnection>
         <connection>scm:git:https://github.com/AnuradhaSK/wso2-organization-mgt-user-operations-event-listener</connection>
-        <tag>v0.23</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <repositories>
